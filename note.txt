@@ -1,0 +1,5 @@
+- Login (Face, GG Firebase, Hiển thị tên trên Navbar)
+- Product (Fake api list , detail, filter, search) (https://606730cf98f405001728e82c.mockapi.io/products)
+- Cart (Total, Lấy thông tin quận huyện, thanh toán Paypal or Stripe, show Popup tất cả thông tin ng mua và đơn hàng)
+- Comment, rating
+

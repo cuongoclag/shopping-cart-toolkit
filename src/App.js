@@ -1,22 +1,17 @@
-import 'boxicons'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import NavBar from "./components/Navbar"
-import Footer from "./components/Footer"
-import ProductList from "./components/ProductList"
-import ProductDetail from "./components/ProductDetail"
-import Cart from "./components/Cart"
-import Login from "./components/Login"
+import "boxicons";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ProductList from "./components/ProductList";
+import ProductDetail from "./components/ProductDetail";
+import Cart from "./components/Cart";
+import Login from "./components/Login";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        <Header />
         <Switch>
           <Route path="/" exact component={ProductList} />
           <Route path="/product/:id" exact component={ProductDetail} />
