@@ -12,7 +12,7 @@ function App() {
       <Router>
         <NavBar />
         <Switch>
-          <h1>HELLO</h1>
+          <h1>HELLO CHuan Hoang</h1>
         </Switch>
       </Router>
     </div>
