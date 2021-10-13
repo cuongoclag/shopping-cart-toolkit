@@ -2,7 +2,7 @@ import Select from "react-select";
 import React, {useState,useEffect} from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getDistrictByIdProvince, getDistricts, getProvinces, getWardByIdDistrict, getWards } from "../features/locationSlice";
+import { getDistrict, getDistricts, getProvince, getProvinces, getWard, getWards } from "../features/locationSlice";
 function Location() {
     // const [provinces, setProvinces] = useState([])
     // const [districts, setDistricts] = useState([])
@@ -14,6 +14,7 @@ function Location() {
     const districts = useSelector(state => state.location.districts)
     const wards = useSelector(state => state.location.wards)
   
+    //đưa vào mảng quận dc lọc từ tp, phường từ quận
     const [districtSelected, setDistrictSelected] = useState([])
     const [wardSelected, setWardSelected] = useState([])
 
@@ -53,19 +54,20 @@ function Location() {
     ]
 
     const handleProvince = (e) => {
-        // dispatch(getProvince(e.label))
-        dispatch(getDistrictByIdProvince(e.value))
-        // const arr = districts.filter(district => district.province_code === e.value)
-        // setDistrictSelected(arr)
+        dispatch(getProvince(e.label))
+        //so sanh lấy ra quận của tp
+        const arr = districts.filter(district => district.province_code === e.value)
+        setDistrictSelected(arr)
     }
     const handleDistrict = (e) => {
-        // dispatch(getDistrict(e.label))
-        dispatch(getWardByIdDistrict(e.value))
-        // const arr = wards.filter(ward => ward.district_code === e.value)
-        // setWardSelected(arr)
+        dispatch(getDistrict(e.label))
+        //so sanh lấy ra phường của quận
+        const arr = wards.filter(ward => ward.district_code === e.value)
+        setWardSelected(arr)
     }
 
     const handleWard = (e) => {
+      dispatch(getWard(e.label))
     }
 
   return (

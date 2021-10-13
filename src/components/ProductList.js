@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Row, Col } from 'reactstrap';
-import { getProducts, getSearchProducts } from '../features/productsSlice';
+import { getProducts } from '../features/productsSlice';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 import Categories from './Categories';
+import RangeFilter from './RangeFilter';
 
 function ProductList() {
 
@@ -60,6 +61,7 @@ function ProductList() {
         <div className="container">
             <input type="text" value={searchText} onChange={(e) => handleSearch(e.target.value)}/>
             <Categories setCategory={setCategory}/>
+            <RangeFilter />
             <Row>
             {
                 products.map((product, index) => {

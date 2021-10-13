@@ -38,6 +38,7 @@ function Categories({ setCategory }) {
 
     return (
         <div style={{ width: '10rem' }}>
+            Category :
             <Select options={listCategories} onChange={handleSelectCategory} defaultInputValue={""} />
         </div>
     )

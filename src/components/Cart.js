@@ -12,9 +12,6 @@ function Cart() {
   const dispatch = useDispatch();
   const cartItem = useSelector((state) => state.cart.cartItem);
   const total = useSelector((state) => state.cart.cartTotalPrice)
-  const districtSelected = useSelector((state) => state.location.districtSelected)
-  const wardSelected = useSelector((state) => state.location.wardSelected)
-  console.log(districtSelected, wardSelected)
 
   useEffect(() => {
     dispatch(subTotal());
@@ -79,7 +76,7 @@ function Cart() {
           <Checkbox checked={checked} setChecked={setChecked}/>
           <Location />
           <h3>SubTotal : {total}</h3>
-          <ModalCart checked={checked} total={total} cartItem={cartItem}/>
+          <ModalCart checked={checked}/>
         </div>
       )}
     </div>

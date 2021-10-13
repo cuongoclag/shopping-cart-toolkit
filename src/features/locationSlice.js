@@ -25,30 +25,34 @@ export const getWards = createAsyncThunk(
     }
 )
 
-const handleDistrictByIdProvince = (state, action) => {
-    const arr = state.districts.filter(district => district.province_code === action)
-    state.districtSelected = arr
+const handleProvince = (state, action) => {
+    state.province = action.payload
 }
 
-const handleWardByIdDistrict = (state, action) => {
-    const arr = state.wards.filter(ward => ward.district_code === action)
-    state.wardSelected = arr
+const handleDistrict = (state, action) => {
+    state.district = action.payload
+}
+
+const handleWard = (state, action) => {
+    state.ward = action.payload
 }
 
 const initialState = {
     provinces: [],
     districts: [],
     wards: [],
-    districtSelected: [],
-    wardSelected: [],
+    province: [],
+    district: [],
+    ward: [],
 }
 
 const locationSlice = createSlice({
     name: "location",
     initialState,
     reducers: {
-        getDistrictByIdProvince : handleDistrictByIdProvince,
-        getWardByIdDistrict : handleWardByIdDistrict
+        getProvince : handleProvince,
+        getDistrict : handleDistrict,
+        getWard : handleWard
     },
     extraReducers:{
         [getProvinces.fulfilled]: (state, action) => {
@@ -63,6 +67,6 @@ const locationSlice = createSlice({
     }
 });
 
-export const { getDistrictByIdProvince , getWardByIdDistrict} = locationSlice.actions
+export const { getProvince, getDistrict, getWard } = locationSlice.actions
 
 export default locationSlice.reducer
